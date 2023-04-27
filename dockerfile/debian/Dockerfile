@@ -1,4 +1,4 @@
-FROM debian:11.6
+FROM debian:11
 
 # 维护人员
 MAINTAINER 徐晓伟 xuxiaowei@xuxiaowei.com.cn

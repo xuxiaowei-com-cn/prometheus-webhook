@@ -1,4 +1,4 @@
-FROM openanolis/anolisos:7
+FROM openanolis/anolisos:7.9-x86_64
 
 # 维护人员
 MAINTAINER 徐晓伟 xuxiaowei@xuxiaowei.com.cn

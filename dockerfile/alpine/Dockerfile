@@ -1,4 +1,4 @@
-FROM alpine:3.17.3
+FROM alpine:3
 
 # 维护人员
 MAINTAINER 徐晓伟 xuxiaowei@xuxiaowei.com.cn
