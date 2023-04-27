@@ -48,6 +48,23 @@ build:debian:docker:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
 
+build:ubuntu:docker:
+  needs:
+    - job: build
+      artifacts: true
+  stage: build:docker
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-ubuntu -f dockerfile/ubuntu/Dockerfile .
+    - docker images
+    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+    - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-ubuntu
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
+
+
 build:alpine:
   stage: build
   image: golang:alpine3.17
