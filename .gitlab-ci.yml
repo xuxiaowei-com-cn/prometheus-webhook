@@ -44,6 +44,13 @@ build:debian:docker:
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-debian
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1
+    - docker save -o v0.0.1-debian.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-debian
+    - docker save -o v0.0.1.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-debian.tar
+      - v0.0.1.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
