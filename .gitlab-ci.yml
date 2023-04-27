@@ -43,7 +43,7 @@ build:alpine:
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
-build:docker:alpine:
+build:alpine:docker:
   needs:
     - job: build:alpine
       artifacts: true
