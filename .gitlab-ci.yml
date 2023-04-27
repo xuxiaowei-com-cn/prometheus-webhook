@@ -68,6 +68,11 @@ build:ubuntu:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-ubuntu
+    - docker save -o v0.0.1-ubuntu.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-ubuntu
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-ubuntu.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -85,6 +90,11 @@ build:centos7:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-centos7
+    - docker save -o v0.0.1-centos7.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-centos7
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-centos7.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -102,6 +112,11 @@ build:centos8:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-centos8
+    - docker save -o v0.0.1-centos8.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-centos8
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-centos8.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -119,6 +134,11 @@ build:anolisos7:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-anolisos7
+    - docker save -o v0.0.1-anolisos7.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-anolisos7
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-anolisos7.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -136,6 +156,11 @@ build:anolisos8:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-anolisos8
+    - docker save -o v0.0.1-anolisos8.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-anolisos8
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-anolisos8.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -153,6 +178,11 @@ build:archlinux:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-archlinux
+    - docker save -o v0.0.1-archlinux.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-archlinux
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-archlinux.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -170,6 +200,11 @@ build:fedora:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-fedora
+    - docker save -o v0.0.1-fedora.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-fedora
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-fedora.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
 
@@ -204,5 +239,10 @@ build:alpine:docker:
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-alpine
+    - docker save -o v0.0.1-alpine.tar "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-alpine
+  artifacts:
+    name: "${CI_JOB_NAME}"
+    paths:
+      - v0.0.1-alpine.tar
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_SERVER_HOST == 'jihulab.com'
