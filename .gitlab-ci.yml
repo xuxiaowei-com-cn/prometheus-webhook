@@ -37,7 +37,7 @@ build:debian:docker:
   services:
     - docker:dind
   script:
-    - docker build -t "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-debian .
+    - docker build -t "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-debian -f dockerfile/debian/Dockerfile .
     - docker images
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push "$DOCKER_USERNAME"/prometheus-webhook:v0.0.1-debian
