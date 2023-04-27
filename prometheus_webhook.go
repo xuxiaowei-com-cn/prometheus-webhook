@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -24,6 +25,13 @@ func main() {
 	fmt.Printf("Email：%s\n", Email)
 	fmt.Printf("Copyright：%s\n", Copyright)
 	fmt.Printf("Description：%s\n", Description)
+
+	var version bool
+	flag.BoolVar(&version, "version", false, "查看版本号")
+	flag.Parse()
+	if version {
+		return
+	}
 
 	http.HandleFunc("/", indexHandler)
 	port := os.Getenv("PORT")
