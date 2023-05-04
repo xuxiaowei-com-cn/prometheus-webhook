@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/xuxiaowei-com-cn/prometheus-webhook/hello"
 	"log"
 	"net/http"
 	"os"
@@ -33,7 +34,7 @@ func main() {
 		return
 	}
 
-	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/", hello.IndexHandler)
 
 	if port == "" {
 		port = os.Getenv("PORT")
@@ -60,15 +61,4 @@ func info() {
 	fmt.Printf("Email：%s\n", Email)
 	fmt.Printf("Copyright：%s\n", Copyright)
 	fmt.Printf("Description：%s\n", Description)
-}
-
-func indexHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-	_, err := fmt.Fprint(w, "Hello, World!")
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-	}
 }
