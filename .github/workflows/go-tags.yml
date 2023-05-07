@@ -49,7 +49,7 @@ jobs:
           go version
           go mod download
           go build -ldflags "-X main.buildTime=$(date +%Y-%m-%d_%H:%M:%S%z) -X main.commitSha=$(git rev-parse HEAD) -X main.commitShortSha=$(git rev-parse --short HEAD) -X main.commitTimestamp=$(git log -1 --format="%cd" --date="format:%Y-%m-%d_%H:%M:%S%z")" prometheus_webhook.go ||           go build -ldflags "-X main.buildTime=$(Get-Date -Format yyyy-MM-dd_HH:mm:ss%z) -X main.commitSha=$(git rev-parse HEAD) -X main.commitShortSha=$(git rev-parse --short HEAD) -X main.commitTimestamp=$(git log -1 --format="%cd" --date="format:%Y-%m-%d_%H:%M:%S%z")" prometheus_webhook.go
-          ./prometheus_webhook -v || ./prometheus_webhook.exe -v
+          ./prometheus_webhook -version || ./prometheus_webhook.exe -version
           ./prometheus_webhook v || ./prometheus_webhook.exe v
           ls
 
